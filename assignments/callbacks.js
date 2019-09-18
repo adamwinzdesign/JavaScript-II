@@ -59,18 +59,35 @@ function last(arr) {
 
 console.log(HOF(items, last));
 
-function sumNums(x, y, cb) {
+const maths = function(num1, num2, cb) {
+  return cb(num1, num2);
+}
+
+function sumNums(x, y) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  return x + y;
 }
 
-function multiplyNums(x, y, cb) {
+console.log(maths(4, 5, sumNums));
+
+function multiplyNums(x, y) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  return x * y;
 }
 
-function contains(item, list, cb) {
+console.log(maths(4, 6, multiplyNums));
+
+function contains(item, list) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  if(list.includes(item)){
+    return true;
+  } else {
+    return false;
+  }
 }
+
+console.log(contains(('Notebook'), items));
 
 /* STRETCH PROBLEM */
 
