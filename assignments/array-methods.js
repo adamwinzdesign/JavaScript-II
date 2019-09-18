@@ -91,19 +91,20 @@ console.log(ticketPriceTotal);
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
+// Get the top 10 donators, print a message of thanks for their donations.
+
 // Problem 1
-// Get the top 10 donators, return their names and company
-// sort the entire array by donation amount
-// for the top 10 donators, return first name, last name, and company
+// Sort the entire array by amount donated, starting with the top donators
 let sortByDonations = runners.sort(function(a, b){
-  return a.donation - b.donation;
+  return b.donation - a.donation;  // b - a returns array with largest result listed first
 })
 
-console.log(sortByDonations);
-
 // Problem 2
-// count the number of runners in XS shirts
-
+// Extract the top 10 donators from the list of all entrants
+let topTen = sortByDonations.slice(0,10);
 
 // Problem 3
-// Get an array with all of the email addresses, called emailList
+// Print a message of thanks to all of the top 10 runners and their companies for their donations.
+let topNamesAndCompanies = topTen.forEach(function(element){
+  console.log('Many thanks to ' + (element.first_name) + ' ' + (element.last_name) + ' from ' + (element.company_name) + ' for donating ' + '$' + (element.donation) + '!');
+});
