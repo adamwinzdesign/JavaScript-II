@@ -1,6 +1,5 @@
 // Create a higher order function and invoke the callback function to test your work. You have been provided an example of a problem and a solution to see how this works with our items array.  Study both the problem and the solution to figure out the rest of the problems.
 
-const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 /* 
 
@@ -39,26 +38,56 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 */
 
 
-function getLength(arr, cb) {
+const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
+
+// HOF
+function HOF(arr, cb) {
+  return cb(arr);
+};
+
+function getLength(arr) {
   // getLength passes the length of the array into the callback.
+  return arr.length;
 }
 
-function last(arr, cb) {
+console.log(HOF(items, getLength));
+
+function last(arr) {
   // last passes the last item of the array into the callback.
+  return arr[arr.length - 1];
 }
 
-function sumNums(x, y, cb) {
+console.log(HOF(items, last));
+
+const maths = function(num1, num2, cb) {
+  return cb(num1, num2);
+}
+
+function sumNums(x, y) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  return x + y;
 }
 
-function multiplyNums(x, y, cb) {
+console.log(maths(4, 5, sumNums));
+
+function multiplyNums(x, y) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  return x * y;
 }
 
-function contains(item, list, cb) {
+console.log(maths(4, 6, multiplyNums));
+
+function contains(item, list) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  if(list.includes(item)){
+    return true;
+  } else {
+    return false;
+  }
 }
+
+console.log(contains(('Notebook'), items));
 
 /* STRETCH PROBLEM */
 

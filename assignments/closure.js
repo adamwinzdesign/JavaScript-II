@@ -4,6 +4,25 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+function myCar(carType) {
+  const color = 'dark blue';
+  const engine = '4cyl NA';
+  console.log(`Why did Adam get a ${carType}?`);
+
+  function displayDetails(details) {
+    const transmission = details;
+    console.log(`This ${carType} has a ${transmission}.`)
+
+    function tryToSell(sell) {
+      const bodyType = 'wagon';
+      console.log(`Because this vehicle is a ${bodyType}, it has a decent amount of ${sell}.  It can also be fun because it has a ${transmission}.`);
+    } // sell
+    tryToSell('cargo room');
+  } // details
+  displayDetails('6sp manual, like God intended')
+} // carType
+
+console.log(myCar('Subaru'));
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
