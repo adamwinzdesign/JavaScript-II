@@ -1,6 +1,5 @@
 // Create a higher order function and invoke the callback function to test your work. You have been provided an example of a problem and a solution to see how this works with our items array.  Study both the problem and the solution to figure out the rest of the problems.
 
-const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 /* 
 
@@ -39,13 +38,26 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 */
 
 
-function getLength(arr, cb) {
+const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
+
+// HOF
+function HOF(arr, cb) {
+  return cb(arr);
+};
+
+function getLength(arr) {
   // getLength passes the length of the array into the callback.
+  return arr.length;
 }
 
-function last(arr, cb) {
+console.log(HOF(items, getLength));
+
+function last(arr) {
   // last passes the last item of the array into the callback.
+  return arr[arr.length - 1];
 }
+
+console.log(HOF(items, last));
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
