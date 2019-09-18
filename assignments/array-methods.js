@@ -93,7 +93,17 @@ console.log(ticketPriceTotal);
 
 // Problem 1
 // Get the top 10 donators, return their names and company
+// sort the entire array by donation amount
+// for the top 10 donators, return first name, last name, and company
+let sortByDonations = runners.sort(function(a, b){
+  return a.donation - b.donation;
+})
+
+console.log(sortByDonations);
 
 // Problem 2
+// count the number of runners in XS shirts
+
 
 // Problem 3
+// Get an array with all of the email addresses, called emailList
